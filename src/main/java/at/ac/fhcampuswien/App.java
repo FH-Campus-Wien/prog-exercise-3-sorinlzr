@@ -126,10 +126,10 @@ public class App {
             c = Character.toLowerCase(c);
 
             if (isNextUppercase) {
-                sb.append(Character.toUpperCase(c));
+                sb.append(toUppercase(c));
                 isNextUppercase = false;
             } else {
-                sb.append(Character.toLowerCase(c));
+                sb.append(toLowercase(c));
             }
         }
 
@@ -143,6 +143,20 @@ public class App {
 
     private static boolean isWhitespace(char c) {
         return WHITESPACE_CHAR_MIN_VALUE <= c && c <= WHITESPACE_CHAR_MAX_VALUE;
+    }
+
+    private static char toLowercase(char c) {
+        if (UPPERCASE_CHAR_MIN_VALUE <= c && c <= UPPERCASE_CHAR_MAX_VALUE) {
+            return (char) (c + 32);
+        }
+        return c;
+    }
+
+    private static char toUppercase(char c) {
+        if (LOWERCASE_CHAR_MIN_VALUE <= c && c <= LOWERCASE_CHAR_MAX_VALUE) {
+            return (char) (c - 32);
+        }
+        return c;
     }
 
     public static int checkDigit(int[] code) {
