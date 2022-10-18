@@ -123,7 +123,7 @@ public class App {
                 isNextUppercase = true;
                 continue;
             }
-            c = Character.toLowerCase(c);
+            c = toLowercase(c);
 
             if (isNextUppercase) {
                 sb.append(toUppercase(c));
