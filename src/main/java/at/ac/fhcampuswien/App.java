@@ -10,6 +10,7 @@ public class App {
     private static final int LOWERCASE_CHAR_MAX_VALUE = 122;
     private static final int WHITESPACE_CHAR_MIN_VALUE = 28;
     private static final int WHITESPACE_CHAR_MAX_VALUE = 32;
+    private static final int UPPER_TO_LOWERCASE_DIFF = 32;
 
     public static void oneMonthCalendar(int daysInMonth, int firstDay) {
         int offsetDays = firstDay - 1;
@@ -147,14 +148,14 @@ public class App {
 
     private static char toLowercase(char c) {
         if (UPPERCASE_CHAR_MIN_VALUE <= c && c <= UPPERCASE_CHAR_MAX_VALUE) {
-            return (char) (c + 32);
+            return (char) (c + UPPER_TO_LOWERCASE_DIFF);
         }
         return c;
     }
 
     private static char toUppercase(char c) {
         if (LOWERCASE_CHAR_MIN_VALUE <= c && c <= LOWERCASE_CHAR_MAX_VALUE) {
-            return (char) (c - 32);
+            return (char) (c - UPPER_TO_LOWERCASE_DIFF);
         }
         return c;
     }
